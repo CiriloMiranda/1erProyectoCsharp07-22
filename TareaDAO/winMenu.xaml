@@ -1,0 +1,91 @@
+﻿<Window x:Class="TareaDAO.winMenu"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TareaDAO"
+        mc:Ignorable="d"
+        Title="winMenu" Height="450" Width="800" WindowStyle="None" BorderBrush="#242424" BorderThickness="2" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Storyboard x:Key="AbrirMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CerrarMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="60"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnAbrirMenu">
+            <BeginStoryboard Storyboard="{StaticResource AbrirMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCerrarMenu">
+            <BeginStoryboard Storyboard="{StaticResource CerrarMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid Background="#E8EBF0">
+        <Grid Height="60" VerticalAlignment="Top" Background=" #5B94E9">
+            <TextBlock Text="MENU" HorizontalAlignment="Center" FontSize="24" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock x:Name="txtUsuario" Text="Usuario" VerticalAlignment="Center" FontSize="20" Foreground="White" FontWeight="Bold"/>
+                <materialDesign:PopupBox HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="White">
+                    <StackPanel Width="150">
+                        <Button Content="Datos del Usuario"/>
+                        <Button Content="Configuración"/>
+                        <Separator/>
+                        <Button Content="Cerrar Session" Click="Button_Click"/>
+                        <Button x:Name="btnSalirL" Content="Salir" Click="btnSalirL_Click"/>
+
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="left" Background="#103785">
+            <StackPanel>
+                <Grid Height="150" Background="White">
+                    <Button x:Name="btnCerrarMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="btnCerrarMenu_Click">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
+                    </Button>
+                    <Button x:Name="btnAbrirMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="btnAbrirMenu_Click">
+                        <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
+                    </Button>
+                    <Grid Height="100" VerticalAlignment="Bottom">
+                        <Image x:Name="img1" HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="100"  Stretch="Fill" Source="enferm1.png" Visibility="Collapsed" />
+                    </Grid>
+                </Grid>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground=" #5B94E9">
+                    <ListViewItem Height="60" PreviewMouseLeftButtonDown="ListViewItem_PreviewMouseLeftButtonDown_2">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountMultiple" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Socios" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" PreviewMouseLeftButtonDown="ListViewItem_PreviewMouseLeftButtonDown_1">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Notebook" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Actividades" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <Separator/>
+                    <ListViewItem Height="60" PreviewMouseLeftButtonDown="ListViewItem_PreviewMouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Logout" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Salir" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <Image HorizontalAlignment="Left" Height="310" Margin="172,69,0,0" VerticalAlignment="Top" Width="508" Source="Personal.png" Stretch="Fill"/>
+
+    </Grid>
+</Window>

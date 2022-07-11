@@ -1,0 +1,81 @@
+﻿<Window x:Class="TareaDAO.winSocio"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TareaDAO"
+        mc:Ignorable="d"
+        Title="winSocio" Height="650" Width="1200" WindowStyle="None" BorderBrush="#242424" BorderThickness="2" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Loaded="Window_Loaded">
+    <Grid>
+        <Grid Background="#C9D7DE">
+            <StackPanel>
+                <Grid Height="50" Background="#5B94E9" VerticalAlignment="Top">
+                    <TextBlock x:Name="txtUsuario" Text="Usuario" VerticalAlignment="Center" Margin="10" FontSize="20" Foreground="White" FontWeight="Bold"/>
+                    <materialDesign:PopupBox HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="White">
+                        <StackPanel Width="150">
+                            <Button x:Name="btnRegresar" Content="Menu Principal" ToolTip="Regresar al menu Principal" Click="btnRegresar_Click"/>
+                            <Button x:Name="btnSalir" Content="Salir" ToolTip="Cerrar Sesion y Salir del Sistema" Click="btnSalir_Click"/>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </Grid>
+                <TextBlock Text="ADMINISTRACIÓN DE SOCIOS" Foreground="#0F4D92" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Margin="10 0 0 0" Content="Carnet de Identidad: " HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#0F4D92" FontWeight="Bold" />
+                        <TextBox x:Name="txtCi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="170" TextWrapping="Wrap" materialDesign:TextFieldAssist.HasClearButton="True" Grid.Column="1"/>
+                        <Label Margin="10 0 0 0" Grid.Row="1" Content="Nombres: " HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#0F4D92" FontWeight="Bold" />
+                        <TextBox  x:Name="txtNombres" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="170" TextWrapping="Wrap" materialDesign:TextFieldAssist.HasClearButton="True" Grid.Row="1" Grid.Column="1"/>
+                        <Label Margin="10 0 0 0" Grid.Row="2" Content="Primer Apellido: " HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#0F4D92" FontWeight="Bold" />
+                        <TextBox  x:Name="txtPriemerApellido" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="170" TextWrapping="Wrap" materialDesign:TextFieldAssist.HasClearButton="True" Grid.Row="2" Grid.Column="1"/>
+                        <Label Margin="10 0 0 0" Grid.Row="3" Content="Segundo Apellido: " HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#0F4D92" FontWeight="Bold" />
+                        <TextBox  x:Name="txtSegundoApellido" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="170" TextWrapping="Wrap" materialDesign:TextFieldAssist.HasClearButton="True" Grid.Row="3" Grid.Column="1"/>
+                        <Label Margin="10 0 0 0" Grid.Row="4" Content="Fecha de Nacimiento: " HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#0F4D92" FontWeight="Bold" />
+                        <DatePicker Margin="5 0 0 0" x:Name="dpFechaNacimiento" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="170" materialDesign:TextFieldAssist.HasClearButton="True" Grid.Row="4" Grid.Column="1"/>
+                        <Label Margin="10 0 0 0" Grid.Row="5" Content="Matricula Profesional: " HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#0F4D92" FontWeight="Bold" />
+                        <TextBox  x:Name="txtMatricula" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="170" TextWrapping="Wrap" materialDesign:TextFieldAssist.HasClearButton="True" Grid.Row="5" Grid.Column="1"/>
+                        <Label Margin="10 0 0 0" Grid.Row="6" Content="Lugar de Trabajo: " HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#0F4D92" FontWeight="Bold" />
+                        <TextBox  x:Name="txtLugar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="170" TextWrapping="Wrap" materialDesign:TextFieldAssist.HasClearButton="True" Grid.Row="6" Grid.Column="1"/>
+                        <Label Margin="10 0 0 0" Grid.Row="7" Content="Fuente Financiamiento: " HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#0F4D92" FontWeight="Bold" />
+                        <TextBox  x:Name="txtFuente" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="170" TextWrapping="Wrap" materialDesign:TextFieldAssist.HasClearButton="True" Grid.Row="7" Grid.Column="1"/>
+                        <Label Margin="10 0 0 0" Grid.Row="8" Content="Celular: " HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#0F4D92" FontWeight="Bold" />
+                        <TextBox  x:Name="txtCelular" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="170" TextWrapping="Wrap" materialDesign:TextFieldAssist.HasClearButton="True" Grid.Row="8" Grid.Column="1"/>
+                    </Grid>
+                    <DataGrid x:Name="dgvDatos" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Height="400" Width="800" CanUserAddRows="False" IsReadOnly="True" SelectionChanged="dgvDatos_SelectionChanged" />
+                </Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="btnRegistrar" ToolTip="Para el Registro todos las elementos deben estar llenos" Margin="10 30 10 0" Content="Registrar" Width="160" materialDesign:ButtonAssist.CornerRadius="10" Background="#536880" Foreground="White" FontWeight="Bold" FontSize="20" Height="40" Click="btnRegistrar_Click"/>
+                    <Button x:Name="btnModificar" ToolTip="Podra modificar el elemento elegido" Margin="10 30 10 0" Content="Modificar" Width="160" materialDesign:ButtonAssist.CornerRadius="10" Background="#536880" Foreground="White" FontWeight="Bold"  FontSize="20" Height="40" Click="btnModificar_Click"/>
+                    <Button x:Name="btnEliminar" ToolTip="Una Vez eliminado, no podra recuperar la infomación" Margin="10 30 10 0" Content="Eliminar" Width="160" materialDesign:ButtonAssist.CornerRadius="10" Background="#536880" Foreground="White" FontWeight="Bold"  FontSize="20" Height="40" Click="btnEliminar_Click"/>
+                    <Button x:Name="btnGuardar" ToolTip="Guardara el registro nuevo o la modificacion" Margin="10 30 10 0" Content="Guardar" Width="160" materialDesign:ButtonAssist.CornerRadius="10" Background="#536880" Foreground="White" FontWeight="Bold"  FontSize="20" Height="40" Click="btnGuardar_Click"/>
+                    <Button x:Name="btnCancelar" ToolTip="Cancelara toda actividad realizada" Margin="10 30 10 0" Content="Cancelar" Width="160" materialDesign:ButtonAssist.CornerRadius="10" Background="#536880" Foreground="White" FontWeight="Bold"  FontSize="20" Height="40" Click="btnCancelar_Click"/>
+                </StackPanel>
+                <StackPanel>
+                    <materialDesign:Card Height="50" Margin="10">
+                        <Label x:Name="lblEstado" VerticalAlignment="Center" />
+                    </materialDesign:Card>
+                </StackPanel>
+                
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
